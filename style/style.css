@@ -16,3 +16,12 @@
 .clickable {
 	cursor: pointer;
 }
+
+.userActionIcons {
+	max-width: 200px;
+	width: 120px;
+}
+
+.userActionIcons span {
+	padding-right: 10px;
+}

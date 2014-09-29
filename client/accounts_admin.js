@@ -43,17 +43,32 @@ Template.accountsAdmin.events({
         return false;
     },
 
-    'click .glyphicon-trash': function(event, template) {
+    'click [data-action="delete"]': function(event, template) {
 		Session.set('userInScope', this);
     },
 
-    'click .glyphicon-info-sign': function(event, template) {
+    'click [data-action="info"]': function(event, template) {
 		Session.set('userInScope', this);
     },
 
-    'click .glyphicon-pencil': function(event, template) {
+    'click [data-action="update"]': function(event, template) {
 		Session.set('userInScope', this);
-    }
+	  },
+
+    'click [data-action="addUser"]': function(event, template) {
+		Session.set('userInScope', this);
+		},
+
+		'click [data-action="impersonate"]': function(event, template) {
+			event.preventDefault()
+			Session.set('impersonate', this._id);
+			Meteor.call('impersonate', this._id, Meteor.userId(), function(err, result) {
+				if (err)
+					console.log(err);
+				Meteor.connection.setUserId(Session.get('impersonate'));
+				Router.go('/');
+			});
+		}
 });
 
 Template.accountsAdmin.rendered = function() {

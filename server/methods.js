@@ -6,7 +6,7 @@ Meteor.methods({
 
 		if (user._id == userId)
 			throw new Meteor.Error(422, 'You can\'t delete yourself.');
-		
+
 		// remove the user
 		Meteor.users.remove(userId);
 	},
@@ -102,5 +102,47 @@ Meteor.methods({
 		obj[property] = value;
 		Meteor.users.update({_id: id}, {$set: obj});
 
+	},
+
+	addUser: function(name, email, password) {
+		var user, userId;
+		user = Accounts.createUser({
+			email: email,
+			profile: {
+				name: name
+			}
+		});
+		userId = user;
+		Accounts.setPassword(user, password);
+		return user;
+	},
+
+	addAdmin: function(email, password, name) {
+		if (Meteor.users.findOne({
+			email: email
+		})) {
+			return console.log("user already exists");
+		} else {
+			return Meteor.call('addUser', name, email, password, function(err, userId) {
+				if (err) {
+					return console.log(err);
+				} else {
+					if (Meteor.users.findOne(userId)) {
+						Roles.addUsersToRoles(userId, ["admin"]);
+						Roles.addUsersToRoles(userId, ["superAdmin"]);
+					}
+					if (!Meteor.roles.findOne({
+						name: "admin"
+					})) {
+						return Roles.createRole("admin");
+					}
+				}
+			});
+		}
+	},
+
+	impersonate: function(userId, adminUserId) {
+		return this._setUserId(userId);
 	}
+
 });
