@@ -1,14 +1,13 @@
 Package.describe({
-	summary: "A roles based account management system",
-  version: "0.2.8",
-  git: "git@github.com:cfly15/manage-users.git"
+	summary: "A roles based account management system - restyled for semantic-ui",
+  version: "0.3.0",
+  git: "git@github.com:larsbuur/manage-users.git"
 });
 
 Package.on_use(function (api, where) {
   api.versionsFrom("METEOR@0.9.0");
 	api.use('standard-app-packages', ['client', 'server']);
 	api.use("alanning:roles", ['client', 'server']);
-	api.use("coffeescript", ['client', 'server']);
 
 	api.add_files('libs/user_query.js', ['client', 'server']);
 
