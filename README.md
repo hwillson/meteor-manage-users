@@ -2,7 +2,9 @@
 
 A roles based account management system.
 
-*this package is a fork and heavily modified from 'meteor-accounts-admin-ui-bootstrap-3' by @hharnisc - thanks for the great work*
+Forked from https://github.com/cfly15/meteor-manage-users and added semantic-ui styling and checks for meteor methods.
+
+*The orgiginal package is a fork and heavily modified from 'meteor-accounts-admin-ui-bootstrap-3' by @hharnisc - thanks for the great work*
 
 ## Config
 
