@@ -1,7 +1,7 @@
 Package.describe({
 	summary: "A roles based account management system - restyled for semantic-ui",
   version: "0.3.0",
-  git: "git@github.com:larsbuur/manage-users.git"
+  git: "git@github.com:LarsBuur/meteor-manage-users.git"
 });
 
 Package.on_use(function (api, where) {
