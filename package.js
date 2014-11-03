@@ -7,7 +7,7 @@ Package.describe({
 Package.on_use(function (api, where) {
   api.versionsFrom("METEOR@0.9.0");
 	api.use('standard-app-packages', ['client', 'server']);
-	api.use("alanning:roles", ['client', 'server']);
+	api.use("alanning:roles@1.2.13", ['client', 'server']);
 
 	api.add_files('libs/user_query.js', ['client', 'server']);
 
