@@ -1,7 +1,7 @@
 Package.describe({
 	summary: "A roles based account management system - restyled for semantic-ui",
   version: "0.3.0",
-  git: "git@github.com:larsbuur/manage-users.git"
+  git: "git@github.com:cfly15/meteor-manage-users.git"
 });
 
 Package.on_use(function (api, where) {
@@ -24,7 +24,7 @@ Package.on_use(function (api, where) {
 	api.add_files('client/update_roles_modal.js', 'client');
 	api.add_files('client/add_user_modal.html', 'client');
 	api.add_files('client/add_user_modal.js', 'client');
-	api.add_files('client/accounts_routes.js', 'client'); 
+	api.add_files('client/accounts_routes.js', 'client');
 
 	api.add_files('style/style.css', 'client');
 
