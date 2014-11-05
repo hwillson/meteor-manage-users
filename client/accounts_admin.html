@@ -1,52 +1,51 @@
 <template name="accountsAdmin">
- <div class="ui transition  segment">
-    <div class="ui header">User administration</div>
-      <div class="input-group">
-            <input type="text" class="form-control search-input-filter" value="{{searchFilter}}">
-            <span class="input-group-btn">
-                <button class="ui button" type="button"><span><i class="ui search icon"></i></span></button>
-                <button class="ui button" type="button" data-action="updateRoles" data-toggle="modal">Manage Roles</button>
-                <button class="ui button" type="button" data-action="addUser" data-toggle="modal" ><i class="ui plus icon"></i> Add User</button>
-            </span>
-      </div>
-      <table class='ui sortable table segment'>
-          <thead>
-              <tr>
-                  <th></th>
-                  <th class="ascending">Name</th>
-                  <th>Email</th>
-                  <th>UserId</th>
-                  <th>Roles</th>
-                  <th class="ascending">Points</th>
-              </tr>
-          </thead>
-          <tbody>
-              {{#each users}}
-                  <tr class="{{#if myself _id}}warning{{/if}}">
-                      <td class="userActionIcons">
-                        {{#unless myself _id}}
-                              <span data-toggle="modal" data-action="delete"  class=""><i class="ui trash icon"></i></span>
-                              <span data-toggle="modal" data-action="update" class=""><i class="ui pencil icon"></i></span>
-                              <span data-toggle="modal" data-action="info" class=""><i class="ui info icon"></i></span>
-                              {{#if isInRole 'superAdmin'}}<span data-action="impersonate" class=""><i class="ui privacy icon"></i></span>{{/if}}
-                        {{/unless}}
-                      </td>
-                      <td>
-                          {{#if profile.name}}
-                              {{profile.name}}
-                          {{else}}
-                              {{email}}
-                          {{/if}}
-                      </td>
-                      <td>{{email}}</td>
-                      <td>{{_id}}</td>
-                      <td>{{roles}}</td>
-                      <td class="ui float right">{{points}}</td>
-                  </tr>
-              {{/each}}
-          </tbody>
-      </table>
+    <div class="row accounts-search">
+        <div class="col-sm-offset-4 col-sm-8">
+            <div class="input-group">
+                <input type="text" class="form-control search-input-filter" value="{{searchFilter}}">
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button"><span><i class="fa fa-search"></i></span></button>
+                    <button class="btn btn-default" type="button" data-toggle="modal" href="#updateroles">Manage Roles</button>
+                    <button class="btn btn-primary" type="button" data-action="addUser" data-toggle="modal" href="#addUser"><i class="fa fa-plus"></i> Add User</button>
+                </span>
+            </div>
+        </div>
     </div>
+    <table class='table table-striped'>
+        <thead>
+            <tr>
+                <th></th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>UserId</th>
+                <th>Roles</th>
+            </tr>
+        </thead>
+        <tbody>
+            {{#each users}}
+                <tr class="{{#if myself _id}}info{{/if}}">
+                    <td class="userActionIcons">
+                      {{#unless myself _id}}
+                            <span data-toggle="modal" data-action="delete" href="#deleteaccount" class="clickable"><i class="fa fa-trash"></i></span>
+                            <span data-toggle="modal" data-action="update" href="#updateaccount" class="clickable"><i class="fa fa-pencil"></i></span>
+                            <!-- <span data-toggle="modal" data-action="info" href="#infoaccount" class="clickable"><i class="fa fa-info"></i></span> -->
+                            {{#if isInRole 'superAdmin'}}<span data-action="impersonate" class="clickable"><i class="fa fa-binoculars"></i></span>{{/if}}
+                      {{/unless}}
+                    </td>
+                    <td>
+                        {{#if profile.name}}
+                            {{profile.name}}
+                        {{else}}
+                            {{email}}
+                        {{/if}}
+                    </td>
+                    <td>{{email}}</td>
+                    <td>{{_id}}</td>
+                    <td>{{roles}}</td>
+                </tr>
+            {{/each}}
+        </tbody>
+    </table>
     {{> updateRolesModal}}
     {{> deleteAccountModal}}
     {{> infoAccountModal}}
