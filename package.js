@@ -1,5 +1,6 @@
 Package.describe({
-	summary: "A roles based account management system - restyled for semantic-ui",
+	name: "manage-users",
+	summary: "A roles based account management system",
   version: "0.3.0",
   git: "git@github.com:cfly15/meteor-manage-users.git"
 });
