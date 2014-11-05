@@ -35,5 +35,11 @@ Template.deleteAccountModalInner.events({
 			}
 			$("#deleteaccount").modal("hide");
 		});
+
+	},
+
+	'click .btn-default':function(){
+		$("#deleteaccount").modal("hide");
 	}
+
 });

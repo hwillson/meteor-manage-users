@@ -1,5 +1,7 @@
 Meteor.methods({
 	deleteUser: function(userId) {
+		check(userId, String);
+
 		var user = Meteor.user();
 		if (!user || !Roles.userIsInRole(user, ['admin']))
 			throw new Meteor.Error(401, "You need to be an admin to delete a user.");
@@ -12,6 +14,9 @@ Meteor.methods({
 	},
 
 	addUserRole: function(userId, role) {
+		check(userId, String);
+		check(role, String);
+
 		var user = Meteor.user();
 		if (!user || !Roles.userIsInRole(user, ['admin']))
 			throw new Meteor.Error(401, "You need to be an admin to update a user.");
@@ -32,6 +37,9 @@ Meteor.methods({
 	},
 
 	removeUserRole: function(userId, role) {
+		check(userId, String);
+		check(role, String);
+
 		var user = Meteor.user();
 		if (!user || !Roles.userIsInRole(user, ['admin']))
 			throw new Meteor.Error(401, "You need to be an admin to update a user.");
@@ -91,6 +99,10 @@ Meteor.methods({
 	},
 
 	updateUserInfo: function(id, property, value) {
+		check(id, String);
+		check(property, String);
+		check(value, String);
+
 		var user = Meteor.user();
 		if (!user || !Roles.userIsInRole(user, ['admin']))
 			throw new Meteor.Error(401, "You need to be an admin to update a user.");
@@ -105,6 +117,10 @@ Meteor.methods({
 	},
 
 	addUser: function(name, email, password) {
+		check(email, String);
+		check(password, String);
+		check(name, String);
+
 		var user, userId;
 		user = Accounts.createUser({
 			email: email,
@@ -118,6 +134,10 @@ Meteor.methods({
 	},
 
 	addAdmin: function(email, password, name) {
+		check(email, String);
+		check(password, String);
+		check(name, String);
+
 		if (Meteor.users.findOne({
 			email: email
 		})) {
@@ -142,6 +162,17 @@ Meteor.methods({
 	},
 
 	impersonate: function(userId, adminUserId) {
+		check(userId, String);
+		check(adminUserId, String);
+
+		if (!Meteor.users.findOne(userId))
+			throw new Meteor.Error(404, 'User not found');
+
+		var caller = Meteor.users.findOne(adminUserId);
+		if (!Roles.userIsInRole(caller, ['admin']))
+			throw new Meteor.Error(401,
+				"You need to be an admin to update a user.");
+
 		return this._setUserId(userId);
 	}
 

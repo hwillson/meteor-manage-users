@@ -2,7 +2,7 @@
   "dependencies": [
     [
       "accounts-base",
-      "1.1.1"
+      "1.0.1"
     ],
     [
       "alanning:roles",
@@ -14,7 +14,7 @@
     ],
     [
       "autoupdate",
-      "1.1.1"
+      "1.1.0"
     ],
     [
       "base64",
@@ -26,7 +26,7 @@
     ],
     [
       "blaze",
-      "2.0.1"
+      "2.0.0"
     ],
     [
       "blaze-tools",
@@ -42,23 +42,19 @@
     ],
     [
       "check",
-      "1.0.1"
-    ],
-    [
-      "coffeescript",
-      "1.0.3"
+      "1.0.0"
     ],
     [
       "ddp",
-      "1.0.9"
+      "1.0.8"
     ],
     [
       "deps",
-      "1.0.4"
+      "1.0.3"
     ],
     [
       "ejson",
-      "1.0.3"
+      "1.0.2"
     ],
     [
       "fastclick",
@@ -74,7 +70,7 @@
     ],
     [
       "html-tools",
-      "1.0.1"
+      "1.0.0"
     ],
     [
       "htmljs",
@@ -82,7 +78,7 @@
     ],
     [
       "http",
-      "1.0.6"
+      "1.0.5"
     ],
     [
       "id-map",
@@ -98,7 +94,7 @@
     ],
     [
       "livedata",
-      "1.0.10"
+      "1.0.9"
     ],
     [
       "localstorage",
@@ -110,11 +106,11 @@
     ],
     [
       "meteor",
-      "1.1.1"
+      "1.1.0"
     ],
     [
       "meteor-platform",
-      "1.1.1"
+      "1.1.0"
     ],
     [
       "minifiers",
@@ -130,7 +126,7 @@
     ],
     [
       "mongo",
-      "1.0.6"
+      "1.0.5"
     ],
     [
       "observe-sequence",
@@ -146,11 +142,11 @@
     ],
     [
       "reactive-dict",
-      "1.0.3"
+      "1.0.2"
     ],
     [
       "reactive-var",
-      "1.0.2"
+      "1.0.1"
     ],
     [
       "reload",
@@ -170,11 +166,11 @@
     ],
     [
       "session",
-      "1.0.2"
+      "1.0.1"
     ],
     [
       "spacebars",
-      "1.0.2"
+      "1.0.1"
     ],
     [
       "spacebars-compiler",
@@ -182,11 +178,11 @@
     ],
     [
       "standard-app-packages",
-      "1.0.2"
+      "1.0.1"
     ],
     [
       "templating",
-      "1.0.7"
+      "1.0.6"
     ],
     [
       "tracker",
@@ -194,7 +190,7 @@
     ],
     [
       "ui",
-      "1.0.3"
+      "1.0.2"
     ],
     [
       "underscore",
@@ -206,7 +202,7 @@
     ],
     [
       "webapp",
-      "1.1.2"
+      "1.1.1"
     ],
     [
       "webapp-hashing",
@@ -214,6 +210,6 @@
     ]
   ],
   "pluginDependencies": [],
-  "toolVersion": "meteor-tool@1.0.32",
+  "toolVersion": "meteor-tool@1.0.31",
   "format": "1.0"
 }
