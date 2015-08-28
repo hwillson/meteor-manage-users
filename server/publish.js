@@ -1,7 +1,12 @@
 Meteor.publish('roles', function (){
-	return Meteor.roles.find({});
+  return Meteor.roles.find({});
 });
 
-Meteor.publish('filteredUsers', function(filter) {
-	return filteredUserQuery(this.userId, filter);
+Meteor.publish('filteredUsers', function (filter) {
+  if (filter) {
+    check(filter, Object);
+  } else {
+    check(filter, Match.Any);
+  }
+  return filteredUserQuery(this.userId, filter);
 });
